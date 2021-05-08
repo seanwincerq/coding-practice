@@ -84,6 +84,7 @@ public:
 
         prevNode->next = newNode;
         tailNode = newNode;
+        length++;
     }
 
     void print()
@@ -110,6 +111,7 @@ int main()
     intList.insert(5, 3);
     intList.insert(5, 1000);
     intList.print();
+    std::cout << intList.size() << std::endl;
 
     auto charList = LinkedList<char>();
     charList.insert('a');
@@ -119,4 +121,5 @@ int main()
     charList.print();
     charList.insert('e', 0);
     charList.print();
+    std::cout << charList.size() << std::endl;
 }
