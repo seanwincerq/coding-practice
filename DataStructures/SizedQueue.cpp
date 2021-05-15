@@ -25,13 +25,18 @@ public:
 
     T pop()
     {
-        if (head >= tail)
+        if (empty())
         {
             std::cout << "Empty Queue\n";
             return T();
         }
         
         return m_data[head++];
+    }
+
+    bool empty()
+    {
+        return head >= tail;
     }
 
     void print()
