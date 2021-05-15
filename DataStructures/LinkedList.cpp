@@ -87,6 +87,25 @@ public:
         length++;
     }
 
+    void remove(const uint32_t index)
+    {
+        node* prevNode = nullptr;
+        uint32_t currIdx = 0;
+        for (node* target = headNode; target != nullptr; target = target->next)
+        {
+            if (currIdx == index)
+            {
+                prevNode->next = target->next;
+                delete target;
+                return;
+            }
+            prevNode = target;
+            currIdx++;
+        }
+
+        std::cout << "data not found\n";
+    }
+
     void print()
     {   
         for (node* target = headNode; target != nullptr; target = target->next)
@@ -111,15 +130,6 @@ int main()
     intList.insert(5, 3);
     intList.insert(5, 1000);
     intList.print();
-    std::cout << intList.size() << std::endl;
-
-    auto charList = LinkedList<char>();
-    charList.insert('a');
-    charList.insert('b');
-    charList.insert('c');
-    charList.insert('d');
-    charList.print();
-    charList.insert('e', 0);
-    charList.print();
-    std::cout << charList.size() << std::endl;
+    intList.remove(3);
+    intList.print();
 }
